@@ -1,9 +1,10 @@
 import React from "react";
+import Home from "./pages/Home";
 
-function App() {
+function App(): JSX.Element {
   return (
     <div className="App">
-      <h1>Hacker News</h1>
+      <Home />
     </div>
   );
 }
