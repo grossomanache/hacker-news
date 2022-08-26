@@ -1,5 +1,11 @@
-import styled from "styled-components";
+import { NavBarContainer } from "./NavBarContainer";
 
-export const CreateContainer = styled.div`
-  height: auto;
-`;
+const NavBar = (): JSX.Element => {
+  return (
+    <NavBarContainer>
+      <p>HACKER NEWS</p>
+    </NavBarContainer>
+  );
+};
+
+export default NavBar;
