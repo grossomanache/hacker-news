@@ -5,7 +5,12 @@ const Home = (): JSX.Element => {
   return (
     <>
       <NavBar />
-      <ArticlePreview />
+      <ArticlePreview
+        author="Author"
+        time="3"
+        like={true}
+        title="React article"
+      />
     </>
   );
 };
