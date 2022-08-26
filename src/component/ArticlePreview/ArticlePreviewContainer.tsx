@@ -8,12 +8,35 @@ const ArticlePreviewContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  font-family: "Roboto", sans-serif;
+
   .article {
     &--column {
       flex-direction: column;
+      justify-content: center;
+      align-self: center;
+      &:nth-child(1) {
+        margin-left: 26px;
+      }
       &:nth-child(2) {
         background-color: #f5f5f5;
         width: 68px;
+      }
+    }
+    &--time {
+      font-size: 11px;
+    }
+    &--title {
+      font-size: 14px;
+      font-weight: 500;
+      margin: 0;
+    }
+    &--like {
+      text-align: center;
+      font-size: 26px;
+      svg {
+        color: #dd0031;
+        border: #dd0031;
       }
     }
   }
