@@ -2,7 +2,8 @@
 
 Created by: Reign<br />
 Built by: Elías Heresi
-Available on: https://hacker-news-elias-heresi.netlify.app/
+URL: https://hacker-news-elias-heresi.netlify.app/
+Code quality: https://sonarcloud.io/project/overview?id=grossomanache_hacker-news
 
 ## Pages
 
