@@ -9,7 +9,7 @@ export const loadArticlesThunk =
   ({ searchTerm = "", page = 0 }: GetArticlesProps) =>
   async (dispatch: AppDispatch) => {
     try {
-      const query = `${hackerNewsUrl}search_by_date?query=${searchTerm}&page=${page}`;
+      const query = `${hackerNewsUrl}search_by_date?query=${searchTerm}&page=${page}&hitsPerPage=8`;
       const {
         data: { hits: articles },
       } = await axios.get(query);
