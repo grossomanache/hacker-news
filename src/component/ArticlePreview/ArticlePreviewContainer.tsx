@@ -9,6 +9,7 @@ const ArticlePreviewContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   font-family: "Roboto", sans-serif;
+  margin: 15px 20px;
 
   .article {
     &--column {
@@ -34,6 +35,10 @@ const ArticlePreviewContainer = styled.div`
       color: #6b6b6b;
       font-weight: 500;
       margin: 5px 0;
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
     }
     &--like {
       text-align: center;
