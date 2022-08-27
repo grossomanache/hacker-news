@@ -8,9 +8,19 @@ const initialState = {
 const articlesSlice = createSlice({
   name: "diary",
   initialState,
-  reducers: {},
+  reducers: {
+    resetCollection: () => ({
+      collection: [],
+    }),
+    load: (diary, action) => ({
+      collection: action.payload,
+    }),
+  },
 });
 
-export const {} = articlesSlice.actions;
+export const {
+  resetCollection: resetCollectionActionCreator,
+  load: loadActionCreator,
+} = articlesSlice.actions;
 
 export default articlesSlice.reducer;
