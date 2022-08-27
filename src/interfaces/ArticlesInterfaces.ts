@@ -1,7 +1,7 @@
 interface Article {
   title: string;
   author: string;
-  creationDate: Date;
+  created_at: Date;
 }
 
 export interface ArticleCollection {
