@@ -22,8 +22,7 @@ const ArticlePreview = ({
       <div className="article--column">
         <p className="article--time">
           <FontAwesomeIcon icon={faClockFour} className="icon" />
-          <span> </span> Created {timeAgo.format(new Date(created_at))} by{" "}
-          {author}
+          <span> </span> {timeAgo.format(new Date(created_at))} by {author}
         </p>
         <h4 className="article--title">{title}</h4>
       </div>
