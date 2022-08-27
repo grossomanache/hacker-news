@@ -26,14 +26,17 @@ const ArticlePreview = ({
           <span> </span> {timeAgo.format(new Date(created_at))} by {author}
         </p>
         <h4 className="article--title">
-          <a href={story_url}>{story_title}</a>
+          <a href={story_url} target="_blank" rel="noreferrer">
+            {story_title}
+          </a>
         </h4>
       </div>
       <div className="article--column">
         <p className="article--like">
-          {like && (
-            <FontAwesomeIcon icon={faHeart} className="article--like icon" />
-          )}
+          <FontAwesomeIcon
+            icon={faHeart}
+            className={`icon ${like ? "" : "not-"}liked`}
+          />
         </p>
       </div>
     </ArticlePreviewContainer>
@@ -41,3 +44,4 @@ const ArticlePreview = ({
 };
 
 export default ArticlePreview;
+//

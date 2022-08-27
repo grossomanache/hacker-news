@@ -44,8 +44,12 @@ const ArticlePreviewContainer = styled.div`
       text-align: center;
       font-size: 26px;
       svg {
-        color: #dd0031;
-        border: #dd0031;
+        &.liked {
+          color: #dd0031;
+        }
+        &.not-liked {
+          color: #656565;
+        }
       }
     }
   }
