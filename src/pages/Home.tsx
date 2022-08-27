@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import ArticlePreview from "../component/ArticlePreview/ArticlePreview";
+import ArticlePreviewList from "../component/ArticlePreviewList/ArticlePreviewList";
 import NavBar from "../component/NavBar/NavBar";
 import { useAppDispatch } from "../redux/store/hooks";
 import { loadArticlesThunk } from "../redux/thunks/articleThunks";
@@ -12,12 +12,7 @@ const Home = (): JSX.Element => {
   return (
     <>
       <NavBar />
-      <ArticlePreview
-        author="Author"
-        time="3"
-        like={true}
-        title="React article"
-      />
+      <ArticlePreviewList />
     </>
   );
 };
