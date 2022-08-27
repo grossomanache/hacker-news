@@ -1,7 +1,6 @@
 import { ArticleCollection } from "../../interfaces/ArticlesInterfaces";
 import { useAppSelector } from "../../redux/store/hooks";
 import ArticlePreview from "../ArticlePreview/ArticlePreview";
-import Filter from "../Filter/Filter";
 import ArticlePreviewListContainer from "./ArticlePreviewListContainer";
 
 const ArticlePreviewList = (): JSX.Element => {

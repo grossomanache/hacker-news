@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import ArticlePreviewList from "../component/ArticlePreviewList/ArticlePreviewList";
 import Filter from "../component/Filter/Filter";
-import NavBar from "../component/NavBar/NavBar";
 import { useAppDispatch } from "../redux/store/hooks";
 import { loadArticlesThunk } from "../redux/thunks/articleThunks";
+import HomeContainer from "./HomeContainer";
 
 const Home = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -11,10 +11,10 @@ const Home = (): JSX.Element => {
     dispatch(loadArticlesThunk({}));
   });
   return (
-    <>
+    <HomeContainer>
       <Filter />
       <ArticlePreviewList />
-    </>
+    </HomeContainer>
   );
 };
 
