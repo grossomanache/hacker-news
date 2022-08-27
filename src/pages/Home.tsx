@@ -7,7 +7,7 @@ import { loadArticlesThunk } from "../redux/thunks/articleThunks";
 const Home = (): JSX.Element => {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(loadArticlesThunk({ searchTerm: "angular", page: 0 }));
+    dispatch(loadArticlesThunk({}));
   });
   return (
     <>
