@@ -1,5 +1,8 @@
 import axios from "axios";
-import { loadActionCreator } from "../features/articlesSlice";
+import {
+  filterActionCreator,
+  loadActionCreator,
+} from "../features/articlesSlice";
 import { AppDispatch } from "../store/store";
 import { GetArticlesProps } from "./articleThunksTypes";
 
@@ -9,6 +12,7 @@ export const loadArticlesThunk =
   ({ searchTerm = "", page = 0 }: GetArticlesProps) =>
   async (dispatch: AppDispatch) => {
     try {
+      dispatch(filterActionCreator(searchTerm));
       const query = `${hackerNewsUrl}search_by_date?query=${searchTerm}&page=${page}&hitsPerPage=8`;
       const {
         data: { hits: articles },

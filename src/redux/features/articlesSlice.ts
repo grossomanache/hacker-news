@@ -2,9 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import { ArticleState } from "../../interfaces/ArticlesInterfaces";
 
 const initialState = {
-  collection: [],
-  favorites: false,
   filter: null,
+  favorites: false,
+  collection: [],
 } as ArticleState;
 
 const articlesSlice = createSlice({

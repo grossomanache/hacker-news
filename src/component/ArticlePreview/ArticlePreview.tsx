@@ -4,12 +4,9 @@ import { faHeart, faClockFour } from "@fortawesome/free-solid-svg-icons";
 import { ArticleProps } from "./ArticlePreviewTypes";
 import TimeAgo from "javascript-time-ago";
 
-// English.
 import en from "javascript-time-ago/locale/en";
 TimeAgo.addDefaultLocale(en);
 const timeAgo = new TimeAgo("en-US");
-
-/* <FontAwesomeIcon icon={faClockFour} className="icon" />  */
 
 const ArticlePreview = ({
   created_at,
@@ -44,4 +41,3 @@ const ArticlePreview = ({
 };
 
 export default ArticlePreview;
-//
