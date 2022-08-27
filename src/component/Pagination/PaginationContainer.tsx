@@ -5,6 +5,7 @@ const PaginationContainer = styled.div`
   flex-direction: row;
   p {
     height: 32px;
+    line-height: 32px;
     width: 32px;
     border: 1px solid #d9d9d9;
     border-radius: 6px;
