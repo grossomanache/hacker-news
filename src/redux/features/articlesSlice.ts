@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { ArticleState } from "../../interfaces/ArticlesInterfaces";
 
 const initialState = {
-  filter: null,
+  filter: localStorage.getItem("filter"),
   favorites: false,
   collection: [],
 } as ArticleState;

@@ -5,7 +5,7 @@ import ArticlePreviewListContainer from "./ArticlePreviewListContainer";
 
 const ArticlePreviewList = (): JSX.Element => {
   const { collection }: ArticleState = useAppSelector(
-    (state) => state.articles
+    ({ articles }) => articles
   );
   return (
     <ArticlePreviewListContainer>

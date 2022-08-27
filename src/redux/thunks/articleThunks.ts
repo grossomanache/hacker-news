@@ -13,6 +13,7 @@ export const loadArticlesThunk =
   async (dispatch: AppDispatch) => {
     try {
       dispatch(filterActionCreator(searchTerm));
+      localStorage.setItem("filter", searchTerm);
       const query = `${hackerNewsUrl}search_by_date?query=${searchTerm}&page=${page}&hitsPerPage=8`;
       const {
         data: { hits: articles },
