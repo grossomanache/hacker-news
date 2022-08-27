@@ -11,12 +11,13 @@ const ArticlePreviewList = (): JSX.Element => {
     <ArticlePreviewListContainer>
       <>
         {collection.length > 0 &&
-          collection.map((article) => {
+          collection.map((article, index) => {
             const { author, created_at, story_title, story_url } = article;
             return (
               <ArticlePreview
+                key={index}
                 author={author}
-                like={true}
+                like={false}
                 created_at={created_at}
                 story_title={story_title}
                 story_url={story_url}
