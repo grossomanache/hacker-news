@@ -8,8 +8,12 @@ const ArticlePreviewContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-family: "Roboto", sans-serif;
   margin: 15px 20px;
+
+  * :hover {
+    opacity: 0.6;
+    /* filter: alpha(opacity=40); */
+  }
 
   .article {
     &--column {
@@ -44,6 +48,7 @@ const ArticlePreviewContainer = styled.div`
       text-align: center;
       font-size: 26px;
       svg {
+        cursor: pointer;
         &.liked {
           color: #dd0031;
         }

@@ -1,5 +1,6 @@
 import { ChangeEvent } from "react";
 import { ArticleState } from "../../interfaces/ArticlesInterfaces";
+import { changePageActionCreator } from "../../redux/features/pageSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { loadArticlesThunk } from "../../redux/thunks/articleThunks";
 import FilterContainer from "./FilterContainer";
@@ -10,6 +11,7 @@ const Filter = (): JSX.Element => {
 
   const modifyFavorite = (event: ChangeEvent<HTMLSelectElement>) => {
     dispatch(loadArticlesThunk({ searchTerm: event.target.value }));
+    dispatch(changePageActionCreator(1));
   };
 
   return (
