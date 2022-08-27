@@ -1,5 +1,6 @@
 interface Article {
-  title: string;
+  story_title: string;
+  story_url: string;
   author: string;
   created_at: Date;
 }

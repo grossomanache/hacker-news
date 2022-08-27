@@ -34,6 +34,10 @@ const ArticlePreviewContainer = styled.div`
       color: #6b6b6b;
       font-weight: 500;
       margin: 5px 0;
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
     }
     &--like {
       text-align: center;

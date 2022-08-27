@@ -14,7 +14,8 @@ const timeAgo = new TimeAgo("en-US");
 const ArticlePreview = ({
   created_at,
   author,
-  title,
+  story_title,
+  story_url,
   like,
 }: ArticleProps): JSX.Element => {
   return (
@@ -24,7 +25,9 @@ const ArticlePreview = ({
           <FontAwesomeIcon icon={faClockFour} className="icon" />
           <span> </span> {timeAgo.format(new Date(created_at))} by {author}
         </p>
-        <h4 className="article--title">{title}</h4>
+        <h4 className="article--title">
+          <a href={story_url}>{story_title}</a>
+        </h4>
       </div>
       <div className="article--column">
         <p className="article--like">
