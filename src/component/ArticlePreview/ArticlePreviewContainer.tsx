@@ -21,15 +21,19 @@ const ArticlePreviewContainer = styled.div`
       &:nth-child(2) {
         background-color: #f5f5f5;
         width: 68px;
+        height: inherit;
       }
     }
     &--time {
       font-size: 11px;
+      color: #767676;
+      margin: 0;
     }
     &--title {
       font-size: 14px;
+      color: #6b6b6b;
       font-weight: 500;
-      margin: 0;
+      margin: 5px 0;
     }
     &--like {
       text-align: center;

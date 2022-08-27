@@ -1,13 +1,7 @@
 import ArticlePreviewContainer from "./ArticlePreviewContainer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faClockFour } from "@fortawesome/free-solid-svg-icons";
-
-interface ArticleProps {
-  time: string;
-  author: string;
-  title: string;
-  like: boolean;
-}
+import { ArticleProps } from "./ArticlePreviewTypes";
 
 const ArticlePreview = ({
   time,
