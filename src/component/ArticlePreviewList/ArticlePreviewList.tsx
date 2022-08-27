@@ -1,11 +1,11 @@
-import { ArticleCollection } from "../../interfaces/ArticlesInterfaces";
+import { ArticleState } from "../../interfaces/ArticlesInterfaces";
 import { useAppSelector } from "../../redux/store/hooks";
 import ArticlePreview from "../ArticlePreview/ArticlePreview";
 import ArticlePreviewListContainer from "./ArticlePreviewListContainer";
 
 const ArticlePreviewList = (): JSX.Element => {
-  const { collection }: ArticleCollection = useAppSelector(
-    (state) => state.articles
+  const { collection }: ArticleState = useAppSelector(
+    ({ articles }) => articles
   );
   return (
     <ArticlePreviewListContainer>

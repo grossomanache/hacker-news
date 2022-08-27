@@ -1,19 +1,35 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ArticleCollection } from "../../interfaces/ArticlesInterfaces";
+import { ArticleState } from "../../interfaces/ArticlesInterfaces";
 
 const initialState = {
+  filter: localStorage.getItem("filter"),
+  favorites: false,
   collection: [],
-} as ArticleCollection;
+} as ArticleState;
 
 const articlesSlice = createSlice({
-  name: "diary",
+  name: "articles",
   initialState,
   reducers: {
-    resetCollection: () => ({
+    resetCollection: (articles) => ({
+      ...articles,
       collection: [],
     }),
-    load: (diary, action) => ({
+    load: (articles, action) => ({
+      ...articles,
       collection: action.payload,
+    }),
+    filter: (articles, action) => ({
+      ...articles,
+      filter: action.payload,
+    }),
+    favoritesOn: (articles) => ({
+      ...articles,
+      favorites: true,
+    }),
+    favoritesOff: (articles) => ({
+      ...articles,
+      favorites: false,
     }),
   },
 });
@@ -21,6 +37,9 @@ const articlesSlice = createSlice({
 export const {
   resetCollection: resetCollectionActionCreator,
   load: loadActionCreator,
+  filter: filterActionCreator,
+  favoritesOn: favoritesOnActionCreator,
+  favoritesOff: favoritesOffActionCreator,
 } = articlesSlice.actions;
 
 export default articlesSlice.reducer;
