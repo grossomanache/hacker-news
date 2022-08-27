@@ -48,6 +48,7 @@ const ArticlePreviewContainer = styled.div`
       text-align: center;
       font-size: 26px;
       svg {
+        cursor: pointer;
         &.liked {
           color: #dd0031;
         }
