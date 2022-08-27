@@ -1,4 +1,4 @@
 export interface GetArticlesProps {
-  searchTerm: string;
-  page: number;
+  searchTerm?: string;
+  page?: number;
 }

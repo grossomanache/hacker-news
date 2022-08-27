@@ -1,5 +1,5 @@
 export interface ArticleProps {
-  time: string;
+  created_at: Date;
   author: string;
   title: string;
   like: boolean;
