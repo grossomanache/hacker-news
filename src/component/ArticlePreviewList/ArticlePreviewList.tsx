@@ -9,22 +9,20 @@ const ArticlePreviewList = (): JSX.Element => {
   );
   return (
     <ArticlePreviewListContainer>
-      <>
-        {collection.length > 0 &&
-          collection.map((article, index) => {
-            const { author, created_at, story_title, story_url } = article;
-            return (
-              <ArticlePreview
-                key={index}
-                author={author}
-                like={false}
-                created_at={created_at}
-                story_title={story_title}
-                story_url={story_url}
-              />
-            );
-          })}
-      </>
+      {collection.length > 0 &&
+        collection.map((article, index) => {
+          const { author, created_at, story_title, story_url } = article;
+          return (
+            <ArticlePreview
+              key={index}
+              author={author}
+              like={false}
+              created_at={created_at}
+              story_title={story_title}
+              story_url={story_url}
+            />
+          );
+        })}
     </ArticlePreviewListContainer>
   );
 };
