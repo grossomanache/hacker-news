@@ -8,7 +8,6 @@ const ArticlePreviewContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-family: "Roboto", sans-serif;
   margin: 15px 20px;
 
   .article {
