@@ -1,4 +1,5 @@
 import axios from "axios";
+import { loadActionCreator } from "../features/articlesSlice";
 import { AppDispatch } from "../store/store";
 import { GetArticlesProps } from "./articleThunksTypes";
 
@@ -12,6 +13,7 @@ export const loadArticlesThunk =
       const {
         data: { hits: articles },
       } = await axios.get(query);
+      dispatch(loadActionCreator(articles));
     } catch (error) {
     } finally {
     }
