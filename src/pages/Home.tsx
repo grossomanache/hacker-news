@@ -18,7 +18,7 @@ const Home = (): JSX.Element => {
     <HomeContainer>
       <Filter />
       <ArticlePreviewList />
-      <Pagination />
+      <Pagination page={page} />
     </HomeContainer>
   );
 };

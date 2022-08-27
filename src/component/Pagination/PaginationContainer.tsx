@@ -10,6 +10,10 @@ const PaginationContainer = styled.div`
     border-radius: 6px;
     margin: 0 4px;
     text-align: center;
+    &.active {
+      color: #ffffff;
+      background-color: #1890ff;
+    }
   }
 `;
 

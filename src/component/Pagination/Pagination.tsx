@@ -8,7 +8,7 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useAppDispatch } from "../../redux/store/hooks";
 import PaginationContainer from "./PaginationContainer";
 
-const Pagination = (): JSX.Element => {
+const Pagination = ({ page }: { page: number }): JSX.Element => {
   const dispatch = useAppDispatch();
 
   let items = [];
@@ -19,7 +19,11 @@ const Pagination = (): JSX.Element => {
   );
   for (let item = 1; item <= 10; item++) {
     items.push(
-      <p key={item} onClick={() => dispatch(changePageActionCreator(item))}>
+      <p
+        className={`${item === page ? "active" : ""}`}
+        key={item}
+        onClick={() => dispatch(changePageActionCreator(item))}
+      >
         {item}
       </p>
     );
