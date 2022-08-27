@@ -1,3 +1,4 @@
+import { ChangeEvent } from "react";
 import { ArticleState } from "../../interfaces/ArticlesInterfaces";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { loadArticlesThunk } from "../../redux/thunks/articleThunks";
@@ -7,7 +8,7 @@ const Filter = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { filter }: ArticleState = useAppSelector(({ articles }) => articles);
 
-  const modifyFavorite = (event: any) => {
+  const modifyFavorite = (event: ChangeEvent<HTMLSelectElement>) => {
     dispatch(loadArticlesThunk({ searchTerm: event.target.value }));
   };
 
