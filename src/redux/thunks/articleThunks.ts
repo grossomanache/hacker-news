@@ -18,7 +18,7 @@ export const loadArticlesThunk =
     dispatch(loadingActionCreator());
     dispatch(filterActionCreator(searchTerm));
     localStorage.setItem("filter", searchTerm);
-    const query = `${hackerNewsUrl}search_by_date?query=${searchTerm}&page=${page}&hitsPerPage=8`;
+    const query = `${hackerNewsUrl}search_by_date?query=${searchTerm}&page=${page}&hitsPerPage=12`;
     const {
       data: { hits: articles },
     } = await axios.get(query);

@@ -3,6 +3,7 @@ import { UiState } from "../../interfaces/UiInterfaces";
 
 const initialState = {
   loading: false,
+  myFaves: false,
 } as UiState;
 
 const uiSlice = createSlice({
@@ -17,11 +18,13 @@ const uiSlice = createSlice({
       ...ui,
       loading: false,
     }),
+    toggleFavorites: (ui: UiState) => ({ ...ui, myFaves: !ui.myFaves }),
   },
 });
 
 export const {
   loading: loadingActionCreator,
   finishedLoading: finishedLoadingActionCreator,
+  toggleFavorites: toggleFavoritesActionCreator,
 } = uiSlice.actions;
 export default uiSlice.reducer;

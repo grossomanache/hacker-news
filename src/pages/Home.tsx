@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import ArticlePreviewList from "../component/ArticlePreviewList/ArticlePreviewList";
+import FavoritesButton from "../component/FavoritesButton/FavoritesButton";
 import Filter from "../component/Filter/Filter";
 import LoadingModal from "../component/LoadingModal/LoadingModal";
 import Pagination from "../component/Pagination/Pagination";
@@ -20,6 +21,7 @@ const Home = (): JSX.Element => {
   }, [dispatch, page, filter]);
   return (
     <HomeContainer>
+      <FavoritesButton />
       <Filter />
       {loading ? (
         <LoadingModal />
