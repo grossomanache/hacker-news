@@ -33,13 +33,12 @@ const ArticlePreviewContainer = styled.div`
         h4 {
           margin-left: 26px;
         }
-
-        background-color: white;
       }
       &:nth-child(2) {
         background-color: #f5f5f5;
         width: 68px;
         height: inherit;
+        border-radius: 0px 6px 6px 0;
       }
     }
     &--time {
