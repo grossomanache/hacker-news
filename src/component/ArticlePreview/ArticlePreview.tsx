@@ -5,8 +5,12 @@ import { ArticleProps } from "./ArticlePreviewTypes";
 import TimeAgo from "javascript-time-ago";
 
 import en from "javascript-time-ago/locale/en";
-import { useAppDispatch } from "../../redux/store/hooks";
-import { addToFavoritesActionCreator } from "../../redux/features/articlesSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
+import {
+  addToFavoritesActionCreator,
+  deleteFromFavoritesActionCreator,
+} from "../../redux/features/articlesSlice";
+import { ArticleState } from "../../interfaces/ArticlesInterfaces";
 TimeAgo.addDefaultLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
@@ -19,6 +23,17 @@ const ArticlePreview = ({
   like,
 }: ArticleProps): JSX.Element => {
   const dispatch = useAppDispatch();
+  const { favorites }: ArticleState = useAppSelector(
+    ({ articles }) => articles
+  );
+
+  const toggleFavorite = () => {
+    if (favorites.includes(story_id)) {
+      dispatch(deleteFromFavoritesActionCreator(story_id));
+    } else {
+      dispatch(addToFavoritesActionCreator(story_id));
+    }
+  };
 
   return (
     <ArticlePreviewContainer>
@@ -39,7 +54,7 @@ const ArticlePreview = ({
             icon={faHeart}
             className={`icon ${like ? "" : "not-"}liked`}
             id={story_id.toString()}
-            onClick={() => dispatch(addToFavoritesActionCreator(story_id))}
+            onClick={toggleFavorite}
           />
         </p>
       </div>
