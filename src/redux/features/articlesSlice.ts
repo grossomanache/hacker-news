@@ -3,7 +3,7 @@ import { ArticleState } from "../../interfaces/ArticlesInterfaces";
 
 const initialState = {
   filter: localStorage.getItem("filter"),
-  favorites: [],
+  favorites: JSON.parse(localStorage.getItem("favorites") ?? "[]"),
   collection: [],
 } as ArticleState;
 

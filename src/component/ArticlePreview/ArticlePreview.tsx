@@ -27,12 +27,20 @@ const ArticlePreview = ({
     ({ articles }) => articles
   );
 
+  if (!localStorage.getItem("favorites")) {
+    localStorage.setItem("favorites", "[]");
+  }
+
   const toggleFavorite = () => {
+    let newFavorites = favorites;
     if (favorites.includes(story_id)) {
       dispatch(deleteFromFavoritesActionCreator(story_id));
+      newFavorites.splice(newFavorites.indexOf(story_id), 1);
     } else {
       dispatch(addToFavoritesActionCreator(story_id));
+      newFavorites.push(story_id);
     }
+    localStorage.setItem("favorites", JSON.stringify(favorites));
   };
 
   return (
