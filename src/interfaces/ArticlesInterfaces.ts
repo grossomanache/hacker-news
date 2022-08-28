@@ -3,7 +3,7 @@ export interface Article {
   story_url: string;
   author: string;
   created_at: Date;
-  objectID: number;
+  story_id: number;
 }
 
 export interface ArticleState {

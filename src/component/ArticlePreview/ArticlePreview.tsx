@@ -1,7 +1,6 @@
 import ArticlePreviewContainer from "./ArticlePreviewContainer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faClockFour } from "@fortawesome/free-solid-svg-icons";
-import { ArticleProps } from "./ArticlePreviewTypes";
 import TimeAgo from "javascript-time-ago";
 
 import en from "javascript-time-ago/locale/en";
@@ -10,34 +9,30 @@ import {
   addToFavoritesActionCreator,
   deleteFromFavoritesActionCreator,
 } from "../../redux/features/articlesSlice";
-import { ArticleState } from "../../interfaces/ArticlesInterfaces";
+import { Article, ArticleState } from "../../interfaces/ArticlesInterfaces";
 TimeAgo.addDefaultLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
-const ArticlePreview = ({
-  article,
-}: {
-  article: ArticleProps;
-}): JSX.Element => {
+const ArticlePreview = ({ article }: { article: Article }): JSX.Element => {
   const dispatch = useAppDispatch();
   const { favorites }: ArticleState = useAppSelector(
     ({ articles }) => articles
   );
 
-  const { created_at, author, story_title, story_url, objectID } = article;
+  const { created_at, author, story_title, story_url, story_id } = article;
 
   const toggleFavorite = () => {
-    if (favorites.includes(objectID)) {
-      dispatch(deleteFromFavoritesActionCreator(objectID));
+    if (favorites.includes(story_id)) {
+      dispatch(deleteFromFavoritesActionCreator(story_id));
       localStorage.setItem(
         "favorites",
-        JSON.stringify(favorites.filter((favorite) => favorite !== objectID))
+        JSON.stringify(favorites.filter((favorite) => favorite !== story_id))
       );
     } else {
-      dispatch(addToFavoritesActionCreator(objectID));
+      dispatch(addToFavoritesActionCreator(story_id));
       localStorage.setItem(
         "favorites",
-        JSON.stringify([...favorites, objectID])
+        JSON.stringify([...favorites, story_id])
       );
     }
   };
@@ -60,9 +55,9 @@ const ArticlePreview = ({
           <FontAwesomeIcon
             icon={faHeart}
             className={`icon ${
-              favorites.includes(objectID) ? "" : "not-"
+              favorites.includes(story_id) ? "" : "not-"
             }liked`}
-            id={objectID.toString()}
+            id={story_id.toString()}
             onClick={toggleFavorite}
           />
         </p>
