@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ArticleState } from "../../interfaces/ArticlesInterfaces";
 
 const initialState = {
-  filter: localStorage.getItem("filter"),
+  filter: localStorage.getItem("filter") ?? "",
   favorites: JSON.parse(localStorage.getItem("favorites") ?? "[]"),
   collection: [],
 } as ArticleState;

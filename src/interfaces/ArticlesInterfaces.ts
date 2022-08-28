@@ -9,5 +9,5 @@ interface Article {
 export interface ArticleState {
   collection: Article[];
   favorites: any[];
-  filter: string | null;
+  filter: string;
 }

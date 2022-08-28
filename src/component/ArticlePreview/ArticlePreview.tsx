@@ -20,27 +20,26 @@ const ArticlePreview = ({
   story_title,
   story_url,
   story_id,
-  like,
 }: ArticleProps): JSX.Element => {
   const dispatch = useAppDispatch();
   const { favorites }: ArticleState = useAppSelector(
     ({ articles }) => articles
   );
 
-  if (!localStorage.getItem("favorites")) {
-    localStorage.setItem("favorites", "[]");
-  }
-
   const toggleFavorite = () => {
-    let newFavorites = favorites;
     if (favorites.includes(story_id)) {
       dispatch(deleteFromFavoritesActionCreator(story_id));
-      newFavorites.splice(newFavorites.indexOf(story_id), 1);
+      localStorage.setItem(
+        "favorites",
+        JSON.stringify(favorites.slice(favorites.indexOf(story_id), 1))
+      );
     } else {
       dispatch(addToFavoritesActionCreator(story_id));
-      newFavorites.push(story_id);
+      localStorage.setItem(
+        "favorites",
+        JSON.stringify([...favorites, story_id])
+      );
     }
-    localStorage.setItem("favorites", JSON.stringify(favorites));
   };
 
   return (

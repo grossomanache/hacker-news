@@ -17,7 +17,6 @@ const ArticlePreviewList = (): JSX.Element => {
             <ArticlePreview
               key={index}
               author={author}
-              like={false}
               created_at={created_at}
               story_id={story_id ?? "noStoryId"}
               story_title={story_title}

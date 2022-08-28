@@ -4,5 +4,4 @@ export interface ArticleProps {
   story_url: string;
   story_id: number;
   author: string;
-  like: boolean;
 }

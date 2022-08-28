@@ -14,14 +14,10 @@ const Home = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { page }: PaginationState = useAppSelector(({ page }) => page);
   const { loading }: UiState = useAppSelector(({ ui }) => ui);
-  const { favorites }: ArticleState = useAppSelector(
-    ({ articles }) => articles
-  );
-  const keyword = localStorage.getItem("filter") as string;
-  localStorage.setItem("favorites", JSON.stringify(favorites));
+  const { filter }: ArticleState = useAppSelector(({ articles }) => articles);
   useEffect(() => {
-    dispatch(loadArticlesThunk({ searchTerm: keyword, page }));
-  }, [dispatch, page, keyword]);
+    dispatch(loadArticlesThunk({ searchTerm: filter, page }));
+  }, [dispatch, page, filter]);
   return (
     <HomeContainer>
       <Filter />
