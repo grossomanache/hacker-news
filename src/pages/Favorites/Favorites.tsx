@@ -29,7 +29,6 @@ const Favorites = (): JSX.Element => {
       ) : (
         <>
           <ArticlePreviewList />
-          <Pagination page={page} />
         </>
       )}
     </FavoritesContainer>

@@ -24,20 +24,20 @@ const ArticlePreview = ({
     ({ articles }) => articles
   );
 
-  const { created_at, author, story_title, story_url, story_id } = article;
+  const { created_at, author, story_title, story_url, objectID } = article;
 
   const toggleFavorite = () => {
-    if (favorites.includes(story_id)) {
-      dispatch(deleteFromFavoritesActionCreator(story_id));
+    if (favorites.includes(objectID)) {
+      dispatch(deleteFromFavoritesActionCreator(objectID));
       localStorage.setItem(
         "favorites",
-        JSON.stringify(favorites.filter((favorite) => favorite !== story_id))
+        JSON.stringify(favorites.filter((favorite) => favorite !== objectID))
       );
     } else {
-      dispatch(addToFavoritesActionCreator(story_id));
+      dispatch(addToFavoritesActionCreator(objectID));
       localStorage.setItem(
         "favorites",
-        JSON.stringify([...favorites, story_id])
+        JSON.stringify([...favorites, objectID])
       );
     }
   };
@@ -60,9 +60,9 @@ const ArticlePreview = ({
           <FontAwesomeIcon
             icon={faHeart}
             className={`icon ${
-              favorites.includes(story_id) ? "" : "not-"
+              favorites.includes(objectID) ? "" : "not-"
             }liked`}
-            id={story_id.toString()}
+            id={objectID.toString()}
             onClick={toggleFavorite}
           />
         </p>

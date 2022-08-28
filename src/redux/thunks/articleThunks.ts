@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Article } from "../../interfaces/ArticlesInterfaces";
 import {
   filterActionCreator,
   loadCollectionActionCreator,
@@ -30,11 +31,14 @@ export const loadFavoritesThunk =
   ({ favorites, page = 0 }: GetFavoritesProps) =>
   async (dispatch: AppDispatch) => {
     dispatch(loadingActionCreator());
-    const idUrls: string[] = [];
-    const query = `${hackerNewsUrl}items/`;
+    const favoritesIdUrls: string[] = [];
+    const query = `${hackerNewsUrl}search?tags=story_`;
     favorites.forEach((favoriteId) => {
-      idUrls.push(query + favoriteId);
+      favoritesIdUrls.push(query + favoriteId);
     });
-    const response = axios.all(idUrls);
+    const response = await axios.all(
+      favoritesIdUrls.map(async (url) => await axios.get(url))
+    );
+
     dispatch(finishedLoadingActionCreator());
   };
