@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const FilterContainer = styled.div`
-  width: 90%;
+  width: 85%;
   select {
     border-radius: 6px;
     max-width: 240px;
