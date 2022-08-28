@@ -9,6 +9,7 @@ const FilterContainer = styled.div`
   }
 
   select {
+    border-radius: 6px;
     cursor: pointer;
     width: 240px;
     height: 32px;
