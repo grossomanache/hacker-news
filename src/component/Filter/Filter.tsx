@@ -10,7 +10,7 @@ const Filter = (): JSX.Element => {
   const { filter }: ArticleState = useAppSelector(({ articles }) => articles);
 
   const modifyTechnology = (event: ChangeEvent<HTMLSelectElement>) => {
-    dispatch(loadArticlesThunk({ searchTerm: event.target.value }));
+    dispatch(loadArticlesThunk({ searchTerm: event.target.value, page: 1 }));
     dispatch(changePageActionCreator(1));
   };
 
@@ -18,7 +18,10 @@ const Filter = (): JSX.Element => {
     <FilterContainer>
       <select defaultValue={filter as string} onChange={modifyTechnology}>
         <option value="">Select your news</option>
-        <option value="angular">Angular </option>
+        <option value="angular">
+          <img src="/img/warning.png" alt="Warning!" />
+          Angular
+        </option>
         <option value="react">React</option>
         <option value="vue">Vue </option>
       </select>

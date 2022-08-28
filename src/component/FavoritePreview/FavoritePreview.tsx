@@ -1,8 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faClockFour } from "@fortawesome/free-solid-svg-icons";
-import TimeAgo from "javascript-time-ago";
-
-import en from "javascript-time-ago/locale/en";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import {
   addToFavoritesActionCreator,
@@ -10,8 +7,7 @@ import {
 } from "../../redux/features/articlesSlice";
 import { ArticleState, Favorite } from "../../interfaces/ArticlesInterfaces";
 import ArticlePreviewContainer from "../ArticlePreview/ArticlePreviewContainer";
-TimeAgo.addDefaultLocale(en);
-const timeAgo = new TimeAgo("en-US");
+import { timeAgo } from "../ArticlePreview/ArticlePreview";
 
 const FavoritePreview = ({ article }: { article: Favorite }): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -36,17 +32,18 @@ const FavoritePreview = ({ article }: { article: Favorite }): JSX.Element => {
 
   return (
     <ArticlePreviewContainer>
-      <div className="article--column">
+      <a
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        className="article--column"
+      >
         <p className="article--time">
           <FontAwesomeIcon icon={faClockFour} className="icon" />
           <span> </span> {timeAgo.format(new Date(created_at))} by {author}
         </p>
-        <h4 className="article--title">
-          <a href={url} target="_blank" rel="noreferrer">
-            {title}
-          </a>
-        </h4>
-      </div>
+        <h4 className="article--title">{title}</h4>
+      </a>
       <div className="article--column">
         <p className="article--like">
           <FontAwesomeIcon

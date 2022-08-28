@@ -10,9 +10,17 @@ const ArticlePreviewContainer = styled.div`
   justify-content: space-between;
   margin: 15px 20px;
 
-  * :hover {
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    height: inherit;
+    width: inherit;
+    display: flex;
+  }
+
+  &:hover {
     opacity: 0.6;
-    /* filter: alpha(opacity=40); */
+    filter: alpha(opacity=40);
   }
 
   .article {
@@ -21,12 +29,16 @@ const ArticlePreviewContainer = styled.div`
       justify-content: center;
       align-self: center;
       &:nth-child(1) {
-        margin-left: 26px;
+        p,
+        h4 {
+          margin-left: 26px;
+        }
       }
       &:nth-child(2) {
         background-color: #f5f5f5;
         width: 68px;
         height: inherit;
+        border-radius: 0px 6px 6px 0;
       }
     }
     &--time {
@@ -39,10 +51,6 @@ const ArticlePreviewContainer = styled.div`
       color: #6b6b6b;
       font-weight: 500;
       margin: 5px 0;
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
     }
     &--like {
       text-align: center;

@@ -6,6 +6,7 @@ const FavoritesButtonContainer = styled.div`
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   color: #606060;
+  cursor: pointer;
   p {
     border: solid 1px #d6d6d6;
     border-radius: 2px;
