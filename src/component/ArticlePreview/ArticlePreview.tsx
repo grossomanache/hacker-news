@@ -5,6 +5,12 @@ import { ArticleProps } from "./ArticlePreviewTypes";
 import TimeAgo from "javascript-time-ago";
 
 import en from "javascript-time-ago/locale/en";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
+import {
+  addToFavoritesActionCreator,
+  deleteFromFavoritesActionCreator,
+} from "../../redux/features/articlesSlice";
+import { ArticleState } from "../../interfaces/ArticlesInterfaces";
 TimeAgo.addDefaultLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
@@ -13,8 +19,29 @@ const ArticlePreview = ({
   author,
   story_title,
   story_url,
-  like,
+  story_id,
 }: ArticleProps): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const { favorites }: ArticleState = useAppSelector(
+    ({ articles }) => articles
+  );
+
+  const toggleFavorite = () => {
+    if (favorites.includes(story_id)) {
+      dispatch(deleteFromFavoritesActionCreator(story_id));
+      localStorage.setItem(
+        "favorites",
+        JSON.stringify(favorites.filter((favorite) => favorite !== story_id))
+      );
+    } else {
+      dispatch(addToFavoritesActionCreator(story_id));
+      localStorage.setItem(
+        "favorites",
+        JSON.stringify([...favorites, story_id])
+      );
+    }
+  };
+
   return (
     <ArticlePreviewContainer>
       <div className="article--column">
@@ -32,7 +59,11 @@ const ArticlePreview = ({
         <p className="article--like">
           <FontAwesomeIcon
             icon={faHeart}
-            className={`icon ${like ? "" : "not-"}liked`}
+            className={`icon ${
+              favorites.includes(story_id) ? "" : "not-"
+            }liked`}
+            id={story_id.toString()}
+            onClick={toggleFavorite}
           />
         </p>
       </div>
