@@ -44,16 +44,17 @@ const ArticlePreview = ({ article }: { article: Article }): JSX.Element => {
 
   return (
     <ArticlePreviewContainer>
-      <a href={story_url} className="article--column">
+      <a
+        href={story_url}
+        target="_blank"
+        rel="noreferrer"
+        className="article--column"
+      >
         <p className="article--time">
           <FontAwesomeIcon icon={faClockFour} className="icon" />
           <span> </span> {timeAgo.format(new Date(created_at))} by {author}
         </p>
-        <h4 className="article--title">
-          <a href={story_url} target="_blank" rel="noreferrer">
-            {story_title}
-          </a>
-        </h4>
+        <h4 className="article--title">{story_title}</h4>
       </a>
       <div className="article--column">
         <p className="article--like">
