@@ -15,16 +15,16 @@ TimeAgo.addDefaultLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
 const ArticlePreview = ({
-  created_at,
-  author,
-  story_title,
-  story_url,
-  story_id,
-}: ArticleProps): JSX.Element => {
+  article,
+}: {
+  article: ArticleProps;
+}): JSX.Element => {
   const dispatch = useAppDispatch();
   const { favorites }: ArticleState = useAppSelector(
     ({ articles }) => articles
   );
+
+  const { created_at, author, story_title, story_url, story_id } = article;
 
   const toggleFavorite = () => {
     if (favorites.includes(story_id)) {
