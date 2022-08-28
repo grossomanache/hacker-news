@@ -20,9 +20,14 @@ const Home = (): JSX.Element => {
   return (
     <HomeContainer>
       <Filter />
-      {loading && <LoadingModal />}
-      <ArticlePreviewList />
-      <Pagination page={page} />
+      {loading ? (
+        <LoadingModal />
+      ) : (
+        <>
+          <ArticlePreviewList />
+          <Pagination page={page} />
+        </>
+      )}
     </HomeContainer>
   );
 };

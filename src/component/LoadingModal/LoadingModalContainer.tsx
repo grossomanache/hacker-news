@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 const LoadingModalContainer = styled.div`
+  z-index: 0;
+  height: 100vh - 114px;
+  margin: 30px auto;
   .lds-ring {
     display: inline-block;
     position: relative;
