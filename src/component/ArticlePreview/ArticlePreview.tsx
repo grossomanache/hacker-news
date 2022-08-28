@@ -13,6 +13,7 @@ const ArticlePreview = ({
   author,
   story_title,
   story_url,
+  story_id,
   like,
 }: ArticleProps): JSX.Element => {
   return (
@@ -33,6 +34,7 @@ const ArticlePreview = ({
           <FontAwesomeIcon
             icon={faHeart}
             className={`icon ${like ? "" : "not-"}liked`}
+            id={story_id.toString()}
           />
         </p>
       </div>
