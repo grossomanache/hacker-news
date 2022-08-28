@@ -60,6 +60,8 @@ const ArticlePreviewContainer = styled.div`
     &--like {
       text-align: center;
       font-size: 26px;
+      height: 10px;
+      width: auto;
       svg {
         cursor: pointer;
         &.liked {
