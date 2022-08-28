@@ -11,6 +11,7 @@ const ArticlePreviewContainer = styled.div`
   margin: 15px 20px;
 
   a {
+    cursor: pointer;
     text-decoration: none;
     height: inherit;
     display: flex;
