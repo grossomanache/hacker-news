@@ -13,7 +13,7 @@ const ArticlePreviewList = (): JSX.Element => {
       {collection.length > 0 &&
         collection.map((article, index) => {
           if (checkValidityOfArticle(article)) {
-            return <ArticlePreview article={article} />;
+            return <ArticlePreview article={article} key={index} />;
           }
           return <></>;
         })}

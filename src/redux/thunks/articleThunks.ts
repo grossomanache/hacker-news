@@ -8,7 +8,7 @@ import {
   loadingActionCreator,
 } from "../features/uiSlice";
 import { AppDispatch } from "../store/store";
-import { GetArticlesProps } from "./articleThunksTypes";
+import { GetArticlesProps, GetFavoritesProps } from "./articleThunksTypes";
 
 const hackerNewsUrl = "https://hn.algolia.com/api/v1/";
 
@@ -23,5 +23,18 @@ export const loadArticlesThunk =
       data: { hits: articles },
     } = await axios.get(query);
     dispatch(loadCollectionActionCreator(articles));
+    dispatch(finishedLoadingActionCreator());
+  };
+
+export const loadFavoritesThunk =
+  ({ favorites, page = 0 }: GetFavoritesProps) =>
+  async (dispatch: AppDispatch) => {
+    dispatch(loadingActionCreator());
+    const idUrls: string[] = [];
+    const query = `${hackerNewsUrl}items/`;
+    favorites.forEach((favoriteId) => {
+      idUrls.push(query + favoriteId);
+    });
+    const response = axios.all(idUrls);
     dispatch(finishedLoadingActionCreator());
   };
