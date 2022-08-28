@@ -2,13 +2,14 @@ import axios from "axios";
 import {
   filterActionCreator,
   loadCollectionActionCreator,
+  loadFavoritesCollectionActionCreator,
 } from "../features/articlesSlice";
 import {
   finishedLoadingActionCreator,
   loadingActionCreator,
 } from "../features/uiSlice";
 import { AppDispatch } from "../store/store";
-import { GetArticlesProps } from "./articleThunksTypes";
+import { GetArticlesProps, GetFavoritesProps } from "./articleThunksTypes";
 
 const hackerNewsUrl = "https://hn.algolia.com/api/v1/";
 
@@ -23,5 +24,23 @@ export const loadArticlesThunk =
       data: { hits: articles },
     } = await axios.get(query);
     dispatch(loadCollectionActionCreator(articles));
+    dispatch(finishedLoadingActionCreator());
+  };
+
+export const loadFavoritesThunk =
+  ({ favorites, page = 0 }: GetFavoritesProps) =>
+  async (dispatch: AppDispatch) => {
+    dispatch(loadingActionCreator());
+    const favoritesIdUrls: string[] = [];
+    const queryUrl = `${hackerNewsUrl}items/`;
+    favorites.forEach((favoriteId) => {
+      favoritesIdUrls.push(queryUrl + favoriteId);
+    });
+    const response = await axios.all(
+      favoritesIdUrls.map(async (url) => await axios.get(url))
+    );
+    const newFavorites = response.map(({ data }) => data);
+    dispatch(loadFavoritesCollectionActionCreator(newFavorites));
+
     dispatch(finishedLoadingActionCreator());
   };

@@ -1,4 +1,3 @@
-import ArticlePreviewContainer from "./ArticlePreviewContainer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faClockFour } from "@fortawesome/free-solid-svg-icons";
 import TimeAgo from "javascript-time-ago";
@@ -9,31 +8,29 @@ import {
   addToFavoritesActionCreator,
   deleteFromFavoritesActionCreator,
 } from "../../redux/features/articlesSlice";
-import { Article, ArticleState } from "../../interfaces/ArticlesInterfaces";
+import { ArticleState, Favorite } from "../../interfaces/ArticlesInterfaces";
+import ArticlePreviewContainer from "../ArticlePreview/ArticlePreviewContainer";
 TimeAgo.addDefaultLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
-const ArticlePreview = ({ article }: { article: Article }): JSX.Element => {
+const FavoritePreview = ({ article }: { article: Favorite }): JSX.Element => {
   const dispatch = useAppDispatch();
   const { favorites }: ArticleState = useAppSelector(
     ({ articles }) => articles
   );
 
-  const { created_at, author, story_title, story_url, story_id } = article;
+  const { created_at, author, title, url, id } = article;
 
   const toggleFavorite = () => {
-    if (favorites.includes(story_id)) {
-      dispatch(deleteFromFavoritesActionCreator(story_id));
+    if (favorites.includes(id)) {
+      dispatch(deleteFromFavoritesActionCreator(id));
       localStorage.setItem(
         "favorites",
-        JSON.stringify(favorites.filter((favorite) => favorite !== story_id))
+        JSON.stringify(favorites.filter((favorite) => favorite !== id))
       );
     } else {
-      dispatch(addToFavoritesActionCreator(story_id));
-      localStorage.setItem(
-        "favorites",
-        JSON.stringify([...favorites, story_id])
-      );
+      dispatch(addToFavoritesActionCreator(id));
+      localStorage.setItem("favorites", JSON.stringify([...favorites, id]));
     }
   };
 
@@ -45,8 +42,8 @@ const ArticlePreview = ({ article }: { article: Article }): JSX.Element => {
           <span> </span> {timeAgo.format(new Date(created_at))} by {author}
         </p>
         <h4 className="article--title">
-          <a href={story_url} target="_blank" rel="noreferrer">
-            {story_title}
+          <a href={url} target="_blank" rel="noreferrer">
+            {title}
           </a>
         </h4>
       </div>
@@ -54,10 +51,8 @@ const ArticlePreview = ({ article }: { article: Article }): JSX.Element => {
         <p className="article--like">
           <FontAwesomeIcon
             icon={faHeart}
-            className={`icon ${
-              favorites.includes(story_id) ? "" : "not-"
-            }liked`}
-            id={story_id.toString()}
+            className={`icon ${favorites.includes(id) ? "" : "not-"}liked`}
+            id={id.toString()}
             onClick={toggleFavorite}
           />
         </p>
@@ -66,4 +61,4 @@ const ArticlePreview = ({ article }: { article: Article }): JSX.Element => {
   );
 };
 
-export default ArticlePreview;
+export default FavoritePreview;
