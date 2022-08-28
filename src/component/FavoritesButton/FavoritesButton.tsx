@@ -7,10 +7,8 @@ import FavoritesButtonContainer from "./FavoritesButtonContainer";
 const FavoritesButton = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { myFaves }: UiState = useAppSelector(({ ui }) => ui);
-  const toggleOption = (event: any) => {
-    const {
-      target: { className },
-    } = event;
+  const toggleOption = (event: MouseEvent) => {
+    const { className } = event.target as HTMLParagraphElement;
     if (!className.includes("active")) {
       dispatch(toggleFavoritesActionCreator());
     }
