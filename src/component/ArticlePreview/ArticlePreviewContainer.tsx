@@ -14,6 +14,7 @@ const ArticlePreviewContainer = styled.div`
     cursor: pointer;
     text-decoration: none;
     height: inherit;
+    width: inherit;
     display: flex;
   }
 
@@ -28,7 +29,11 @@ const ArticlePreviewContainer = styled.div`
       justify-content: center;
       align-self: center;
       &:nth-child(1) {
-        margin-left: 26px;
+        p,
+        h4 {
+          margin-left: 26px;
+        }
+
         background-color: white;
       }
       &:nth-child(2) {
