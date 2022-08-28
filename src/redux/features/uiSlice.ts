@@ -1,19 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Ui } from "../../interfaces/UiInterfaces";
+import { UiState } from "../../interfaces/UiInterfaces";
 
 const initialState = {
   loading: false,
-} as Ui;
+} as UiState;
 
 const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
-    loading: (ui: Ui) => ({
+    loading: (ui: UiState) => ({
       ...ui,
       loading: true,
     }),
-    finishedLoading: (ui: Ui) => ({
+    finishedLoading: (ui: UiState) => ({
       ...ui,
       loading: false,
     }),

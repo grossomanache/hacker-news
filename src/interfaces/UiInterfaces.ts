@@ -1,3 +1,3 @@
-export interface Ui {
+export interface UiState {
   loading: boolean;
 }
