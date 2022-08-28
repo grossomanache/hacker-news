@@ -19,7 +19,7 @@ const ArticlePreviewList = (): JSX.Element => {
               author={author}
               like={false}
               created_at={created_at}
-              story_id={story_id ?? (Math.random() * 99999).toString()}
+              story_id={story_id ?? "noStoryId"}
               story_title={story_title}
               story_url={story_url}
             />

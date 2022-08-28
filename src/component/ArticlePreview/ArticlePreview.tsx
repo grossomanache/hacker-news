@@ -5,6 +5,8 @@ import { ArticleProps } from "./ArticlePreviewTypes";
 import TimeAgo from "javascript-time-ago";
 
 import en from "javascript-time-ago/locale/en";
+import { useAppDispatch } from "../../redux/store/hooks";
+import { addToFavoritesActionCreator } from "../../redux/features/articlesSlice";
 TimeAgo.addDefaultLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
@@ -16,6 +18,8 @@ const ArticlePreview = ({
   story_id,
   like,
 }: ArticleProps): JSX.Element => {
+  const dispatch = useAppDispatch();
+
   return (
     <ArticlePreviewContainer>
       <div className="article--column">
@@ -35,6 +39,7 @@ const ArticlePreview = ({
             icon={faHeart}
             className={`icon ${like ? "" : "not-"}liked`}
             id={story_id.toString()}
+            onClick={() => dispatch(addToFavoritesActionCreator(story_id))}
           />
         </p>
       </div>
