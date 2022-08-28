@@ -8,6 +8,6 @@ export interface Article {
 
 export interface ArticleState {
   collection: Article[];
-  favorites: any[];
+  favorites: number[];
   filter: string;
 }
