@@ -44,7 +44,7 @@ const ArticlePreview = ({ article }: { article: Article }): JSX.Element => {
 
   return (
     <ArticlePreviewContainer>
-      <div className="article--column">
+      <a href={story_url} className="article--column">
         <p className="article--time">
           <FontAwesomeIcon icon={faClockFour} className="icon" />
           <span> </span> {timeAgo.format(new Date(created_at))} by {author}
@@ -54,7 +54,7 @@ const ArticlePreview = ({ article }: { article: Article }): JSX.Element => {
             {story_title}
           </a>
         </h4>
-      </div>
+      </a>
       <div className="article--column">
         <p className="article--like">
           <FontAwesomeIcon

@@ -10,6 +10,12 @@ const ArticlePreviewContainer = styled.div`
   justify-content: space-between;
   margin: 15px 20px;
 
+  a {
+    text-decoration: none;
+    height: inherit;
+    display: flex;
+  }
+
   &:hover {
     opacity: 0.6;
     filter: alpha(opacity=40);
@@ -22,6 +28,7 @@ const ArticlePreviewContainer = styled.div`
       align-self: center;
       &:nth-child(1) {
         margin-left: 26px;
+        background-color: white;
       }
       &:nth-child(2) {
         background-color: #f5f5f5;
