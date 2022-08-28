@@ -15,7 +15,7 @@ const articlesSlice = createSlice({
       ...articles,
       collection: [],
     }),
-    load: (articles, action) => ({
+    loadCollection: (articles, action) => ({
       ...articles,
       collection: action.payload,
     }),
@@ -36,7 +36,7 @@ const articlesSlice = createSlice({
 
 export const {
   resetCollection: resetCollectionActionCreator,
-  load: loadActionCreator,
+  loadCollection: loadCollectionActionCreator,
   filter: filterActionCreator,
   favoritesOn: favoritesOnActionCreator,
   favoritesOff: favoritesOffActionCreator,
