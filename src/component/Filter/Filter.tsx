@@ -18,10 +18,7 @@ const Filter = (): JSX.Element => {
     <FilterContainer>
       <select defaultValue={filter as string} onChange={modifyTechnology}>
         <option value="">Select your news</option>
-        <option value="angular">
-          <img src="/img/warning.png" alt="Warning!" />
-          Angular
-        </option>
+        <option value="angular">Angular</option>
         <option value="react">React</option>
         <option value="vue">Vue </option>
       </select>
