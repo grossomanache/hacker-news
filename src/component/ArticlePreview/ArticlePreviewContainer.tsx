@@ -10,9 +10,9 @@ const ArticlePreviewContainer = styled.div`
   justify-content: space-between;
   margin: 15px 20px;
 
-  * :hover {
+  &:hover {
     opacity: 0.6;
-    /* filter: alpha(opacity=40); */
+    filter: alpha(opacity=40);
   }
 
   .article {
