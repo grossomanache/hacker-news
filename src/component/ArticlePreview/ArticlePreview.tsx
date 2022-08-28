@@ -31,7 +31,7 @@ const ArticlePreview = ({
       dispatch(deleteFromFavoritesActionCreator(story_id));
       localStorage.setItem(
         "favorites",
-        JSON.stringify(favorites.slice(favorites.indexOf(story_id), 1))
+        JSON.stringify(favorites.filter((favorite) => favorite !== story_id))
       );
     } else {
       dispatch(addToFavoritesActionCreator(story_id));
