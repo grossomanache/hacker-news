@@ -1,4 +1,4 @@
-interface Article {
+export interface Article {
   story_title: string;
   story_url: string;
   story_id: number;
@@ -8,6 +8,6 @@ interface Article {
 
 export interface ArticleState {
   collection: Article[];
-  favorites: any[];
+  favorites: number[];
   filter: string;
 }
