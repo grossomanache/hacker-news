@@ -11,11 +11,12 @@ const ArticlePreviewList = (): JSX.Element => {
   return (
     <ArticlePreviewListContainer>
       {collection.length > 0 &&
+        // eslint-disable-next-line array-callback-return
         collection.map((article, index) => {
+          console.log(index);
           if (checkValidityOfArticle(article)) {
             return <ArticlePreview article={article} key={index} />;
           }
-          return <></>;
         })}
     </ArticlePreviewListContainer>
   );

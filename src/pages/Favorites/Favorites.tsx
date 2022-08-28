@@ -1,16 +1,13 @@
 import { useEffect } from "react";
-import ArticlePreviewList from "../../component/ArticlePreviewList/ArticlePreviewList";
 import FavoritePreviewList from "../../component/FavoritePreviewList/FavoritePreviewList";
 import FavoritesButton from "../../component/FavoritesButton/FavoritesButton";
-import Filter from "../../component/Filter/Filter";
 import LoadingModal from "../../component/LoadingModal/LoadingModal";
-import Pagination from "../../component/Pagination/Pagination";
 import { ArticleState } from "../../interfaces/ArticlesInterfaces";
 import { PaginationState } from "../../interfaces/PagesInterfaces";
 import { UiState } from "../../interfaces/UiInterfaces";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { loadFavoritesThunk } from "../../redux/thunks/articleThunks";
-import FavoritesContainer from "./FavoritesContainer";
+import HomeContainer from "../Home/HomeContainer";
 
 const Favorites = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -23,7 +20,7 @@ const Favorites = (): JSX.Element => {
     dispatch(loadFavoritesThunk({ favorites, page }));
   }, [dispatch, favorites, page]);
   return (
-    <FavoritesContainer>
+    <HomeContainer>
       <FavoritesButton />
       {loading ? (
         <LoadingModal />
@@ -32,7 +29,7 @@ const Favorites = (): JSX.Element => {
           <FavoritePreviewList />
         </>
       )}
-    </FavoritesContainer>
+    </HomeContainer>
   );
 };
 

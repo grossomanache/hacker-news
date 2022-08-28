@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Article } from "../../interfaces/ArticlesInterfaces";
 import {
   filterActionCreator,
   loadCollectionActionCreator,
@@ -33,9 +32,9 @@ export const loadFavoritesThunk =
   async (dispatch: AppDispatch) => {
     dispatch(loadingActionCreator());
     const favoritesIdUrls: string[] = [];
-    const query = `${hackerNewsUrl}items/`;
+    const queryUrl = `${hackerNewsUrl}items/`;
     favorites.forEach((favoriteId) => {
-      favoritesIdUrls.push(query + favoriteId);
+      favoritesIdUrls.push(queryUrl + favoriteId);
     });
     const response = await axios.all(
       favoritesIdUrls.map(async (url) => await axios.get(url))
