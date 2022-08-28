@@ -36,11 +36,11 @@ export const loadFavoritesThunk =
     favorites.forEach((favoriteId) => {
       favoritesIdUrls.push(queryUrl + favoriteId);
     });
-    const response = await axios.all(
-      favoritesIdUrls.map(async (url) => await axios.get(url))
+    const response: any[] = await axios.all(
+      favoritesIdUrls.map(async (favoriteUrl) => axios.get(favoriteUrl))
     );
-    const newFavorites = response.map(({ data }) => data);
-    dispatch(loadFavoritesCollectionActionCreator(newFavorites));
+    const favoritesWithInformation = response.map(({ data }) => data);
+    dispatch(loadFavoritesCollectionActionCreator(favoritesWithInformation));
 
     dispatch(finishedLoadingActionCreator());
   };

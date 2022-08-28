@@ -10,7 +10,7 @@ import {
 } from "../../redux/features/articlesSlice";
 import { ArticleState, Favorite } from "../../interfaces/ArticlesInterfaces";
 import ArticlePreviewContainer from "../ArticlePreview/ArticlePreviewContainer";
-TimeAgo.addDefaultLocale(en);
+
 const timeAgo = new TimeAgo("en-US");
 
 const FavoritePreview = ({ article }: { article: Favorite }): JSX.Element => {

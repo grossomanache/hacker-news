@@ -10,7 +10,9 @@ import {
   deleteFromFavoritesActionCreator,
 } from "../../redux/features/articlesSlice";
 import { Article, ArticleState } from "../../interfaces/ArticlesInterfaces";
-TimeAgo.addDefaultLocale(en);
+
+TimeAgo.setDefaultLocale(en.locale);
+TimeAgo.addLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
 const ArticlePreview = ({ article }: { article: Article }): JSX.Element => {
