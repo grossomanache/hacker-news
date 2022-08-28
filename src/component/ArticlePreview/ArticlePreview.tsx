@@ -52,7 +52,9 @@ const ArticlePreview = ({
         <p className="article--like">
           <FontAwesomeIcon
             icon={faHeart}
-            className={`icon ${like ? "" : "not-"}liked`}
+            className={`icon ${
+              favorites.includes(story_id) ? "" : "not-"
+            }liked`}
             id={story_id.toString()}
             onClick={toggleFavorite}
           />
