@@ -3,6 +3,7 @@ import { Article } from "../../interfaces/ArticlesInterfaces";
 import {
   filterActionCreator,
   loadCollectionActionCreator,
+  loadFavoritesCollectionActionCreator,
 } from "../features/articlesSlice";
 import {
   finishedLoadingActionCreator,
@@ -32,13 +33,15 @@ export const loadFavoritesThunk =
   async (dispatch: AppDispatch) => {
     dispatch(loadingActionCreator());
     const favoritesIdUrls: string[] = [];
-    const query = `${hackerNewsUrl}search?tags=story_`;
+    const query = `${hackerNewsUrl}items/`;
     favorites.forEach((favoriteId) => {
       favoritesIdUrls.push(query + favoriteId);
     });
     const response = await axios.all(
       favoritesIdUrls.map(async (url) => await axios.get(url))
     );
+    const newFavorites = response.map(({ data }) => data);
+    dispatch(loadFavoritesCollectionActionCreator(newFavorites));
 
     dispatch(finishedLoadingActionCreator());
   };

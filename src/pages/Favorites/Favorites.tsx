@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import ArticlePreviewList from "../../component/ArticlePreviewList/ArticlePreviewList";
+import FavoritePreviewList from "../../component/FavoritePreviewList/FavoritePreviewList";
 import FavoritesButton from "../../component/FavoritesButton/FavoritesButton";
 import Filter from "../../component/Filter/Filter";
 import LoadingModal from "../../component/LoadingModal/LoadingModal";
@@ -28,7 +29,7 @@ const Favorites = (): JSX.Element => {
         <LoadingModal />
       ) : (
         <>
-          <ArticlePreviewList />
+          <FavoritePreviewList />
         </>
       )}
     </FavoritesContainer>
