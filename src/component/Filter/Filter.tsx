@@ -9,14 +9,14 @@ const Filter = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { filter }: ArticleState = useAppSelector(({ articles }) => articles);
 
-  const modifyFavorite = (event: ChangeEvent<HTMLSelectElement>) => {
+  const modifyTechnology = (event: ChangeEvent<HTMLSelectElement>) => {
     dispatch(loadArticlesThunk({ searchTerm: event.target.value }));
     dispatch(changePageActionCreator(1));
   };
 
   return (
     <FilterContainer>
-      <select defaultValue={filter as string} onChange={modifyFavorite}>
+      <select defaultValue={filter as string} onChange={modifyTechnology}>
         <option value="">Select your news</option>
         <option value="angular">Angular </option>
         <option value="react">React</option>

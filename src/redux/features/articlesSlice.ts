@@ -1,9 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ArticleState } from "../../interfaces/ArticlesInterfaces";
 
 const initialState = {
   filter: localStorage.getItem("filter"),
-  favorites: false,
+  favorites: [],
   collection: [],
 } as ArticleState;
 
@@ -23,14 +23,20 @@ const articlesSlice = createSlice({
       ...articles,
       filter: action.payload,
     }),
-    favoritesOn: (articles) => ({
+    addToFavorites: (articles, action: PayloadAction<number>) => ({
       ...articles,
-      favorites: true,
+      favorites: [...articles.favorites, action.payload],
     }),
-    favoritesOff: (articles) => ({
-      ...articles,
-      favorites: false,
-    }),
+    deleteFromFavorites: (articles, action: PayloadAction<number>) => {
+      const updatedCollection = articles.favorites.filter(
+        (article) => article !== action.payload
+      );
+
+      return {
+        ...articles,
+        favorites: updatedCollection,
+      };
+    },
   },
 });
 
@@ -38,8 +44,8 @@ export const {
   resetCollection: resetCollectionActionCreator,
   loadCollection: loadCollectionActionCreator,
   filter: filterActionCreator,
-  favoritesOn: favoritesOnActionCreator,
-  favoritesOff: favoritesOffActionCreator,
+  addToFavorites: addToFavoritesActionCreator,
+  deleteFromFavorites: deleteFromFavoritesActionCreator,
 } = articlesSlice.actions;
 
 export default articlesSlice.reducer;
