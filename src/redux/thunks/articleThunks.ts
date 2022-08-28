@@ -3,6 +3,7 @@ import {
   filterActionCreator,
   loadCollectionActionCreator,
   loadFavoritesCollectionActionCreator,
+  resetCollectionActionCreator,
 } from "../features/articlesSlice";
 import {
   finishedLoadingActionCreator,
@@ -17,6 +18,7 @@ export const loadArticlesThunk =
   ({ searchTerm = "", page = 0 }: GetArticlesProps) =>
   async (dispatch: AppDispatch) => {
     dispatch(loadingActionCreator());
+    dispatch(resetCollectionActionCreator());
     dispatch(filterActionCreator(searchTerm));
     localStorage.setItem("filter", searchTerm);
     const query = `${hackerNewsUrl}search_by_date?query=${searchTerm}&page=${page}&hitsPerPage=12`;
@@ -31,6 +33,7 @@ export const loadFavoritesThunk =
   ({ favorites, page = 0 }: GetFavoritesProps) =>
   async (dispatch: AppDispatch) => {
     dispatch(loadingActionCreator());
+    dispatch(resetCollectionActionCreator());
     const favoritesIdUrls: string[] = [];
     const queryUrl = `${hackerNewsUrl}items/`;
     favorites.forEach((favoriteId) => {

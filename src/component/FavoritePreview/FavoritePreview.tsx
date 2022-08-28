@@ -1,8 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faClockFour } from "@fortawesome/free-solid-svg-icons";
-import TimeAgo from "javascript-time-ago";
-
-import en from "javascript-time-ago/locale/en";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import {
   addToFavoritesActionCreator,
@@ -10,8 +7,7 @@ import {
 } from "../../redux/features/articlesSlice";
 import { ArticleState, Favorite } from "../../interfaces/ArticlesInterfaces";
 import ArticlePreviewContainer from "../ArticlePreview/ArticlePreviewContainer";
-
-const timeAgo = new TimeAgo("en-US");
+import { timeAgo } from "../ArticlePreview/ArticlePreview";
 
 const FavoritePreview = ({ article }: { article: Favorite }): JSX.Element => {
   const dispatch = useAppDispatch();

@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faClockFour } from "@fortawesome/free-solid-svg-icons";
 import TimeAgo from "javascript-time-ago";
 
-import en from "javascript-time-ago/locale/en";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import {
   addToFavoritesActionCreator,
@@ -11,9 +10,13 @@ import {
 } from "../../redux/features/articlesSlice";
 import { Article, ArticleState } from "../../interfaces/ArticlesInterfaces";
 
-TimeAgo.setDefaultLocale(en.locale);
-TimeAgo.addLocale(en);
-const timeAgo = new TimeAgo("en-US");
+// English.
+import en from "javascript-time-ago/locale/en";
+
+TimeAgo.addDefaultLocale(en);
+
+// Create formatter (English).
+export const timeAgo = new TimeAgo("en-US");
 
 const ArticlePreview = ({ article }: { article: Article }): JSX.Element => {
   const dispatch = useAppDispatch();
