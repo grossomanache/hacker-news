@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ArticleState } from "../../interfaces/ArticlesInterfaces";
+import { Article, ArticleState } from "../../interfaces/ArticlesInterfaces";
 
 const initialState = {
   filter: localStorage.getItem("filter") ?? "",
@@ -15,11 +15,11 @@ const articlesSlice = createSlice({
       ...articles,
       collection: [],
     }),
-    loadCollection: (articles, action) => ({
+    loadCollection: (articles, action: PayloadAction<Article[]>) => ({
       ...articles,
       collection: action.payload,
     }),
-    filter: (articles, action) => ({
+    filter: (articles, action: PayloadAction<string>) => ({
       ...articles,
       filter: action.payload,
     }),
