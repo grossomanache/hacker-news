@@ -18,14 +18,6 @@ const uiSlice = createSlice({
       ...ui,
       loading: false,
     }),
-    favoritesOn: (ui: UiState) => ({
-      ...ui,
-      myFaves: true,
-    }),
-    favoritesOff: (ui: UiState) => ({
-      ...ui,
-      myFaves: false,
-    }),
     toggleFavorites: (ui: UiState) => ({ ...ui, myFaves: !ui.myFaves }),
   },
 });
