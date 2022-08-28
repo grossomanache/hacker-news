@@ -5,7 +5,7 @@ const FilterContainer = styled.div`
     cursor: pointer;
     width: 240px;
     height: 32px;
-    margin: 23px 0 23px 30px;
+    margin: 23px 0;
     size: 20;
   }
 `;
