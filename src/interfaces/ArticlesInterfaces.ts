@@ -6,6 +6,14 @@ export interface Article {
   story_id: number;
 }
 
+export interface ArticleToBeChecked {
+  story_title: string | null;
+  story_url: string | null;
+  author: string | null;
+  created_at: Date | null;
+  story_id: number | null;
+}
+
 export interface Favorite {
   title: string;
   url: string;
