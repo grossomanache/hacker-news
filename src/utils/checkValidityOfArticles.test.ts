@@ -19,7 +19,7 @@ describe("Given the checkValidityOfArticles function", () => {
   });
   describe("When an article contains valid values", () => {
     test("Then it should return false", () => {
-      const invalidArticle = {
+      const validArticle = {
         story_title: "New frameworks are faster than React",
         story_url: "www.vue.org",
         author: "León",
@@ -28,7 +28,7 @@ describe("Given the checkValidityOfArticles function", () => {
       };
 
       const expectedReturnedValue = true;
-      const returnedValue = checkValidityOfArticle(invalidArticle);
+      const returnedValue = checkValidityOfArticle(validArticle);
 
       expect(returnedValue).toBe(expectedReturnedValue);
     });
