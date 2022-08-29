@@ -1,5 +1,4 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { changePageActionCreator } from "../../redux/features/pageSlice";
 import store from "../../redux/store/store";
