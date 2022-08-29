@@ -8,6 +8,7 @@ const ArticlePreviewList = (): JSX.Element => {
   const { collection }: ArticleState = useAppSelector(
     ({ articles }) => articles
   );
+
   const uniqueIds: number[] = [];
   const filteredCollection: Article[] = [];
 

@@ -20,23 +20,40 @@ const articlesSlice = createSlice({
       ...articles,
       collection: [],
     }),
-    loadCollection: (articles, action: PayloadAction<Article[]>) => ({
+
+    loadCollection: (
+      articles: ArticleState,
+      action: PayloadAction<Article[]>
+    ) => ({
       ...articles,
       collection: action.payload,
     }),
-    loadFavoritesCollection: (articles, action: PayloadAction<Favorite[]>) => ({
+
+    loadFavoritesCollection: (
+      articles: ArticleState,
+      action: PayloadAction<Favorite[]>
+    ) => ({
       ...articles,
       favoriteCollection: action.payload,
     }),
-    filter: (articles, action: PayloadAction<string>) => ({
+
+    filter: (articles: ArticleState, action: PayloadAction<string>) => ({
       ...articles,
       filter: action.payload,
     }),
-    addToFavorites: (articles, action: PayloadAction<number>) => ({
+
+    addToFavorites: (
+      articles: ArticleState,
+      action: PayloadAction<number>
+    ) => ({
       ...articles,
       favorites: [...articles.favorites, action.payload],
     }),
-    deleteFromFavorites: (articles, action: PayloadAction<number>) => {
+
+    deleteFromFavorites: (
+      articles: ArticleState,
+      action: PayloadAction<number>
+    ) => {
       const updatedCollection = articles.favorites.filter(
         (article) => article !== action.payload
       );

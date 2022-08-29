@@ -11,14 +11,14 @@ import PaginationContainer from "./PaginationContainer";
 const Pagination = ({ page }: { page: number }): JSX.Element => {
   const dispatch = useAppDispatch();
 
-  let items = [];
-  items.push(
+  let paginationButtons = [];
+  paginationButtons.push(
     <p key={0} onClick={() => dispatch(previousPageActionCreator())}>
       <FontAwesomeIcon icon={faArrowLeft} />
     </p>
   );
   for (let item = 1; item <= 10; item++) {
-    items.push(
+    paginationButtons.push(
       <p
         className={`${item === page ? "active" : ""}`}
         key={item}
@@ -28,13 +28,13 @@ const Pagination = ({ page }: { page: number }): JSX.Element => {
       </p>
     );
   }
-  items.push(
+  paginationButtons.push(
     <p key={11} onClick={() => dispatch(nextPageActionCreator())}>
       <FontAwesomeIcon icon={faArrowRight} />
     </p>
   );
 
-  return <PaginationContainer>{items}</PaginationContainer>;
+  return <PaginationContainer>{paginationButtons}</PaginationContainer>;
 };
 
 export default Pagination;

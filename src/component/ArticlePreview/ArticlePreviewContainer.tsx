@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
 const ArticlePreviewContainer = styled.div`
-  /* @media (min-width: 1774px) {
-    margin-left: -1495px;
-  } */
-
   border: 1px solid #979797;
   border-radius: 6px;
   height: 90px;
